@@ -1,17 +1,19 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  database: embarca
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: db
   username: postgres
   password: password
-  timeout: 5000
+  pool: 5
 
 development:
   <<: *default
+  database: embarca_dev
 
 test:
   <<: *default
+  database: embarca_test
 
 production:
   <<: *default
+  database: embarca
