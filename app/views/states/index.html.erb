@@ -1,0 +1,14 @@
+<h1>States</h1>
+
+<table cellspacing="0" cellpadding="0">
+    <tr>
+        <th>Name</th>
+        <th>Symbol</th>
+    </tr>
+    <% @states.each do |state| %>
+        <tr>
+            <td><%= state.name %></td>
+            <td><%= state.symbol %></td>
+        </tr>
+    <% end %>
+</table>

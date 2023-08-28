@@ -1,0 +1,28 @@
+<h1>Cities</h1>
+
+<%= form_tag "/cities", class: 'search-form', method: "GET" do %>
+  <span class="search-input-label"><%= label_tag :search_by_name %></span>
+  <%= text_field_tag :search_by_name, params[:search_by_name], class: 'search-input' %>
+  <span class="search-input-label"><%= label_tag :search_by_state %></span>
+  <%= text_field_tag :search_by_state, params[:search_by_state], class: 'search-input' %>
+  <%= submit_tag "Search", class: 'btn' %>
+<% end %>
+<% if @cities && @cities.length > 0 %>
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            <th>Name</th>
+            <th>State</th>
+            <th>Capital</th>
+        </tr>
+        
+        <% @cities.each do |city| %>
+            <tr>
+                <td><%= city.name %></td>
+                <td><%= city.state.symbol %></td>
+                <td><%= city.capital ? 'Yes' : 'No' %></td>
+            </tr>
+        <% end %>
+    </table>
+<% else %>
+    <div class="table-no-results">No results found</div>
+<% end %>
