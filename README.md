@@ -1,24 +1,35 @@
-# README
+# Embarca tech test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### How to setup your local environment?
 
-Things you may want to cover:
+After cloning this repository, install gem bundle
+```
+bundle install
+```
 
-* Ruby version
+Now you can run the DB constructor commands
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-* System dependencies
+Than you can start the server
+```
+rails server
+```
+---
+### OR
+---
 
-* Configuration
+Run the container mount
+```
+docker-compose build
+docker-compose run web db:create
+docker-compose run web db:migrate
+docker-compose run web db:seed
+```
 
-* Database creation
+After this the project should be running at https://127.0.0.1:3000/cities
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+> Developed by **Jonathan Hermam**
